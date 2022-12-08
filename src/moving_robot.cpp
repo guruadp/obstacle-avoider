@@ -43,7 +43,7 @@ using namespace std::chrono_literals;
  * member function as a callback from the timer. */
 
 class MovingRobot : public rclcpp::Node {
-public:
+ public:
   MovingRobot() : Node("moving_robot"), count_(0) {
     publisher_ =
         this->create_publisher<geometry_msgs::msg::Twist>("/dolly/cmd_vel", 10);
@@ -51,7 +51,7 @@ public:
         500ms, std::bind(&MovingRobot::timer_callback, this));
   }
 
-private:
+ private:
   void timer_callback() {
     auto message = geometry_msgs::msg::Twist();
     message.linear.x = 0.5;

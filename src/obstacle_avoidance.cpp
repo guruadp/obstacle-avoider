@@ -33,14 +33,13 @@
 
 #include "geometry_msgs/msg/twist.hpp"    // Twist
 #include "rclcpp/rclcpp.hpp"              // ROS Core Libraries
-#include "sensor_msgs/msg/laser_scan.hpp" // Laser Scan
+#include "sensor_msgs/msg/laser_scan.hpp"  // Laser Scan
 
 using std::placeholders::_1;
 
 class ObstacleAvoidance : public rclcpp::Node {
-public:
+ public:
   ObstacleAvoidance() : Node("ObstacleAvoidance") {
-
     auto default_qos = rclcpp::QoS(rclcpp::SystemDefaultsQoS());
     subscription_ = this->create_subscription<sensor_msgs::msg::LaserScan>(
         "laser_scan", default_qos,
@@ -49,13 +48,14 @@ public:
         this->create_publisher<geometry_msgs::msg::Twist>("cmd_vel", 10);
   }
 
-private:
+ private:
   void topic_callback(const sensor_msgs::msg::LaserScan::SharedPtr _msg) {
     // 200 readings, from right to left, from -57 to 57 degress
     // calculate new velocity cmd
     float min = 10;
     for (int i = 0; i < 200; i++) { float current = _msg->ranges[i];
-      if (current < min) { min = current; } } auto message = this->calculateVelMsg(min);
+      if (current < min) { min = current; } }
+      auto message = this->calculateVelMsg(min);
     publisher_->publish(message);
   }
   geometry_msgs::msg::Twist calculateVelMsg(float distance) {
