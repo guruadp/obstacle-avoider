@@ -11,10 +11,14 @@ find_package(ament_cmake REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(sensor_msgs REQUIRED)
 
+add_executable(reading_laser src/reading_laser.cpp)
+ament_target_dependencies(reading_laser rclcpp std_msgs sensor_msgs)
 
 install(DIRECTORY
 	launch
+  reading_laser
 	DESTINATION share/${PROJECT_NAME}/
 )
 
