@@ -47,3 +47,33 @@ ros2 launch obstacle-avoider robot.launch.py
 ```
 . /usr/share/gazebo/setup.sh
 ```
+
+## Output video
+https://drive.google.com/drive/folders/1boAp1I3TuWYgSHZtnlTSivgPCQoqZz5x?usp=share_link
+
+## Google Test
+#### Building test
+```
+colcon test --packages-select obstacle-avoider
+```
+#### To check the status of the test cases
+```
+colcon test --event-handlers console_direct+ --packages-select obstacle-avoider
+```
+## ROS Bag
+#### To record run record command and then publisher node
+```
+ros2 launch obstacle-avoider bag_record_launch.py bag_record:=True
+ros2 bag record /ObstacleAvoidance
+ros2 run obstacle-avoider talker
+```
+
+#### To check the recorded file info
+```
+ros2 bag info <generated_folder>
+```
+
+#### To play the recorded file and subscribe it
+```
+ros2 bag play <generated_folder>
+```
