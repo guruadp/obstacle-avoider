@@ -17,15 +17,24 @@ find_package(geometry_msgs REQUIRED)
 add_executable(reading_laser src/reading_laser.cpp)
 ament_target_dependencies(reading_laser rclcpp std_msgs sensor_msgs)
 
+install(DIRECTORY
+	launch
+	DESTINATION share/${PROJECT_NAME}/
+)
+
 # moving robot
 add_executable(moving_robot src/moving_robot.cpp)
 ament_target_dependencies(moving_robot rclcpp geometry_msgs)
 
-install(DIRECTORY
-	launch
-  reading_laser
+# obstacle avoidance
+add_executable(obstacle_avoidance src/obstacle_avoidance.cpp)
+ament_target_dependencies(obstacle_avoidance rclcpp sensor_msgs geometry_msgs)
+
+install(TARGETS
   moving_robot
-	DESTINATION share/${PROJECT_NAME}/
+  reading_laser
+  obstacle_avoidance
+  DESTINATION lib/${PROJECT_NAME}/
 )
 
 if(BUILD_TESTING)
