@@ -20,6 +20,16 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 // DEALINGS IN THE SOFTWARE.
 
+/**
+ * @file moving_robot.cpp
+ * @author Guru Nandhan A D P(guruadp@umd.edu)
+ * @brief this makes the robot to follow a circular path
+ * @version 0.1
+ * @date 2022-12-07
+ *
+ * @copyright Copyright (c) 2022
+ *
+ */
 #include <chrono>
 #include <functional>
 #include <memory>

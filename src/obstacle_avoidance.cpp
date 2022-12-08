@@ -20,6 +20,17 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 // DEALINGS IN THE SOFTWARE.
 
+/**
+ * @file obstacle_avoidance.cpp
+ * @author Guru Nandhan A D P(guruadp@umd.edu)
+ * @brief this program avoids the obstacle 
+ * @version 0.1
+ * @date 2022-12-07
+ *
+ * @copyright Copyright (c) 2022
+ *
+ */
+
 #include "geometry_msgs/msg/twist.hpp"    // Twist
 #include "rclcpp/rclcpp.hpp"              // ROS Core Libraries
 #include "sensor_msgs/msg/laser_scan.hpp" // Laser Scan

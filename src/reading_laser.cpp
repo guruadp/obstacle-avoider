@@ -20,6 +20,17 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 // DEALINGS IN THE SOFTWARE.
 
+/**
+ * @file reading_laser.cpp
+ * @author Guru Nandhan A D P(guruadp@umd.edu)
+ * @brief this code reads laser 
+ * @version 0.1
+ * @date 2022-12-07
+ *
+ * @copyright Copyright (c) 2022
+ *
+ */
+
 #include "rclcpp/rclcpp.hpp"
 #include "sensor_msgs/msg/laser_scan.hpp"
 
@@ -47,8 +58,6 @@ private:
 
 int main(int argc, char *argv[]) {
   rclcpp::init(argc, argv);
-//   auto node = std::make_shared();
-//   RCLCPP_INFO(node->get_logger(), "Hello my friends");
   rclcpp::spin(std::make_shared<ReadingLaser>());
   rclcpp::shutdown();
   return 0;
