@@ -34,7 +34,16 @@ Source the terminal
 source /opt/ros/galactic/setup.bash
 . install/setup.bash
 ```
-### 
+## To run
 ```
-ros2 launch my_package robot.launch.py
+ros2 launch obstacle-avoider obstacle_avoidance.launch.py 
+
+```
+### Open another terminal and run
+```
+ros2 launch obstacle-avoider robot.launch.py
+```
+### if gazebo doesnot open run this command and then re-run the previous command
+```
+. /usr/share/gazebo/setup.sh
 ```
